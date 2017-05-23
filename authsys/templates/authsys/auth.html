@@ -1,0 +1,19 @@
+{%extends 'picture/base.html'%}
+{%load staticfiles%}
+
+{%block main%}
+<div class="authsys_form">
+    <form action="{%url 'authsys:login'%}" method="POST">
+        {%csrf_token%}
+        <label for="login">логин</label><br>
+        {{form.login}}<br>
+        <label for="password">пароль</label><br>
+        {{form.password}}<br>
+        <div class="wrap_but">
+            <input type="submit" value="авторизация"/>
+            <a href="{%url 'authsys:reg'%}">регистрация</a>
+        </div>
+    </form>
+</div>
+
+{%endblock%}

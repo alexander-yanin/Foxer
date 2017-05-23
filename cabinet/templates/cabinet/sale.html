@@ -1,0 +1,14 @@
+{%extends 'cabinet/base_cabinet.html'%}
+{%load staticfiles%}
+
+{%block info_cabinet%}
+{%for sale in sales%}
+<div class="wrap_pub">
+    <img class="img_pub" src="{{MEDIA_URL}}/media/{{sale.path}}" />
+    <label class="img_number">изображение: #{{sale.pk}}</label>
+    <label class="info_pub">продано: {{sale.sale_count}}</label>
+    <label class="info_pub">стоимость: {{sale.price}}</label>
+    <label class="info_pub">опубликовано: {{sale.published_date|date}}</label>
+</div>
+{%endfor%}
+{%endblock%}

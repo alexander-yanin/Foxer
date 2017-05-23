@@ -1,0 +1,12 @@
+{%extends 'cabinet/base_cabinet.html'%}
+{%load staticfiles%}
+
+{%block info_cabinet%}
+{%for purchase in purchases%}
+<div class="wrap_pub">
+    <img class="img_pub" src="{{MEDIA_URL}}/media/{{purchase.path}}" />
+    <label class="img_number">изображение: #{{purchase.pk}}</label>
+    <label class="info_pub">стоимость: {{purchase.price}}</label>
+</div>
+{%endfor%}
+{%endblock%}

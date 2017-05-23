@@ -1,0 +1,62 @@
+{%extends 'picture/base.html'%}
+{%load staticfiles%}
+{%block main%}
+<div class="container">
+    <h1 class="about_header">Фотобанк FoxerPictures - продажа фотографий и иллюстраций</h1>
+</div>
+<div class="container clearfix border_bot">
+    <div class="left_column">
+        <ul class="list">
+            <li>Пакеты избражений с большой скидкой</li>
+            <li>Только качественные фотографии и иллюстрации</li>
+            <li>Подбор изображений по вашему запросу</li>
+            <li>Индивидуальная работа с покупателем</li>
+        </ul>
+    </div>
+    <div class="right_column">
+        <img class="home_slide" src="{%static 'picture/images/home_slider/home_slide_1.jpg'%}" alt=""/>
+    </div>
+</div>
+<div class="container clearfix border_bot">
+    <div class="left_column">
+        <h2 class="news_header"><a href="news/">Новости фотобанка FoxerPictures</a></h2>
+        <ul class="list_news">
+            <li><span class="date">12.01.17</span><a href="news/3">Новый поиск по ключевым словам</a></li>
+            <li><span class="date">30.12.16</span><a href="news/2">FoxerPicture дарит скидки на новый год!</a></li>
+            <li><span class="date">26.12.16</span><a href="news/1">Новый пакет - А7</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container clearfix border_bot">
+    <div class="left_column forsomeone">
+        <h3><a href="#"><u>Покупателям</u></a></h3> 
+        <p>Оплату можно произвести при помощи Visa и MasterCard, а также WebMoney и QIWI.</p>
+        <p>Для юридических лиц мы предлагаем оплату безналичным банковским переводом.</p>
+        <p>Позвоните нам по телефону +7 (955) 930 82 70 или напишите нам на почту ask@foxer.ru и мы ответим на все ваши вопросы.</p>
+    </div>
+    <div class="right_column forsomeone">
+        <h3><a href="#"><u>Авторам</u></a></h3> 
+        <p>Приглашаем фотографов и иллюстраторов к нашему сообществу и начать свою получать прибыль за свою деятельность.</p>
+        <p>С каждой продажи автор получает от 50 до 80% отчислений, в зависимости от вашего рейтинга.</p>
+    </div>
+</div>
+<div class="container clearfix">
+    <div class="left_column forsomeone">
+        <h3>Новые публикации</h3>
+        <div class="new_pub clearfix">
+            {%for new_pub in new_pubs%}
+            <a href="{{new_pub.pk}}"><img src="{{MEDIA_URL}}/media/{{new_pub.path}}"/></a>
+            {%endfor%}
+        </div>
+    </div>
+    <div class="right_column forsomeone">
+        <h3>Лидеры продаж</h3>
+        <div class="new_pub clearfix">
+            {%for lid_sale in lid_sales%}
+            <a href="{{lid_sale.pk}}"><img src="{{MEDIA_URL}}/media/{{lid_sale.path}}"/></a>
+            {%endfor%}
+        </div>
+
+    </div>
+</div>
+{%endblock%}

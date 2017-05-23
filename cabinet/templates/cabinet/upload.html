@@ -1,0 +1,14 @@
+{%extends 'cabinet/base_cabinet.html'%}
+{%load staticfiles%}
+
+{%block info_cabinet%}
+<p>Здесь Вы можете загрузить свою работу на проверку.</p>
+<p>После проверки, Ваша работа будет опубликована и появится в разделе "мои работы".</p>
+<form class="load_form" action="{%url 'cabinet:upload'%}" method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="wrap_file">
+        {{form.image_path}}
+    </div>
+    <input type="submit" value="загрузить"/>
+</form>
+{%endblock%}

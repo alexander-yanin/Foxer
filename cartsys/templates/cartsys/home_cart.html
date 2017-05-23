@@ -1,0 +1,37 @@
+{%extends 'picture/base.html'%}
+{%load staticfiles%}
+
+{%block main%}
+<div class="wrap_cart clearfix">
+    {%if pictures%}
+    <div class="column_sales clearfix">
+        <form class="sales_info" action="{%url 'cartsys:home_cart'%}" method="POST">
+            {%csrf_token%}
+            <table>
+                <tr>
+                    <th colspan="3"><input type="submit" value="удалить из корзины"/></th>
+                </tr>
+                {%for picture in pictures%}
+                <tr>
+                    <td class="check_column"><input type="checkbox" name="selects" value="{{picture.pk}}"></td>
+                    <td class="img_column"><img src="{{MEDIA_URL}}/media/{{picture.path}}"></td>
+                    <td class="info_column">
+                        <label>изображение: #{{picture.pk}}</label>
+                        <label>автор: {{picture.user}}</label>
+                        <label>цена: {{picture.price}}руб.</label>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </form>
+    </div>
+    <div class="final_cost clearfix">
+        <label>общая сумма заказа: {{final_sum}}руб.</label><br>
+        <form action="{%url 'cartsys:payment'%}" method="POST">
+            {%csrf_token%}
+            <input type="submit" value="купить"/>
+        </form>
+    </div>
+    {%endif%}
+</div>
+{%endblock%}

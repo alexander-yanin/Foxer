@@ -1,0 +1,42 @@
+{%extends 'picture/base.html'%}
+{%load staticfiles%}
+
+{%block main%}
+<div class="sidebar clearfix">
+    <ul class="sidebar_profil">
+        <a  style="color: #E94352;"href="{%url 'cabinet:home_cabinet'%}"><li>мой кабинет</li></a>
+        <a href="{%url 'cabinet:profil'%}"><li>мой профиль</li></a>
+    </ul>
+    {%if status%}
+    <ul class="sidebar_author">
+        <p>Автор:</p>
+        <a href="{%url 'cabinet:upload'%}"><li>загрузка работы</li></a>
+        <a href="{%url 'cabinet:publication'%}"><li>мои работы</li></a>
+        <a href="{%url 'cabinet:sale'%}"><li>проданные работы</li></a>
+        <a href=""><li>договор с FoxerPictures</li></a>
+    </ul>
+    {%endif%}
+    <ul class="sidebar_client">
+        <p>Покупатель:</p>
+        <a href="#"><li>баланс ({{balance}} руб.)</li></a>
+        <a href="{%url 'cabinet:purchase'%}"><li>покупки ({{purchase_count}})</li></a>
+        <a href="{%url 'cartsys:home_cart'%}"><li>корзина ({{num_pic}})</li></a>
+    </ul>
+</div>
+<div class="info_cabinet clearfix">
+    {%block info_cabinet%}
+        <p>Добро пожаловать в личный кабинет FoxerPictures!</p> 
+        <p>Здесь Вы можете управлять своим профилем, отслеживать свои покупки и работы. Все купленные работы Вы можете скачать в разделе "Ваши покупки"</p>
+        <p>Так же Вы можете выбрать способ оплаты и способ выплат.</p>
+        <form action="{%url 'cabinet:home_cabinet'%}" method="POST">
+            {%csrf_token%}
+            {{form}}
+            {%if status == 0%}
+            <input class="default_but" type="submit" value="я хочу стать автором"/>
+            {%elif status == 1%}
+            <input class="default_but" type="submit" value="я не хочу быть автором"/>
+            {%endif%}
+        </form>
+    {%endblock%}    
+</div>
+{%endblock%}

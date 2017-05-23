@@ -1,0 +1,56 @@
+.authsys_form{
+    width: 550px;
+    margin: 40px auto 40px;
+    font-family: Arial;
+    font-size: 1.1em;
+    color: #999;
+}
+
+.authsys_form input{
+    margin-bottom: 20px;
+    width: 350px;
+    height: 50px;
+    font-size: 1.2em;
+    padding-left: 10px;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+.authsys_form input[type="submit"]{
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 1em;
+    color: #000;
+    background-color: #E1EBEA;
+}
+
+.authsys_form a{
+    display: block;
+    float: right;
+    text-align: center;
+    background-color: #E1EBEA;
+    line-height: 50px;
+    width: 148px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 1em;
+    color: #000;
+    border: 1px solid #ccc;
+}
+
+.authsys_form a:hover{
+    background-color: #B6C4C7;
+}
+
+.authsys_form input[type="submit"]:hover{
+    background-color: #B6C4C7;
+}
+
+.wrap_but{
+    width: 350px;
+}

@@ -1,0 +1,49 @@
+{%extends 'picture/base.html'%}
+{%load staticfiles%}
+
+{%block main%}
+<div class="topics clearfix">
+    <ul>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+        <li><a href="#">lorem ipsum</a></li>
+    </ul>
+</div>
+<div class="wrap_picture_content clearfix">
+    <div class="main_picture">
+        <div class="wrap_picture">
+            <img src="{{MEDIA_URL}}/media/{{picture.path}}" />
+        </div>
+    </div>
+    <div class="about_picture">
+        {%if login%}
+            {%if exist%}
+            <form action="{%url 'picture:home_picture' picture.pk%}" method="POST">
+                {%csrf_token%}
+                {{form}}
+                <input type="hidden" value="delete" name="operation"/>
+                <input class="default_but" type="submit" value="удалить из корзины"/>
+            </form>
+            {%else%}
+            <form action="{%url 'picture:home_picture' picture.pk%}" method="POST">
+                {%csrf_token%}
+                {{form}}
+                <input type="hidden" value="add" name="operation"/>
+                <input class="default_but" type="submit" value="добавить в корзину"/>
+            </form>
+            {%endif%}
+        {%else%}
+        <a href="{%url 'authsys:home_auth'%}">вы не авторезированы</a>
+        {%endif%}
+        <label class="info_pub">цена: {{picture.price}} руб.</label>
+        <label class="info_pub">изображение: #{{picture.pk}}</label>
+        <label class="info_pub">автор: <u>@{{picture.user}}</u></label>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,14 @@
+{%extends 'cabinet/base_cabinet.html'%}
+{%load staticfiles%}
+
+{%block info_cabinet%}
+{%for p in publication%}
+<div class="wrap_pub">
+    <img class="img_pub" src="{{MEDIA_URL}}/media/{{p.path}}" />
+    <label class="img_number">изображение: #{{p.pk}}</label>
+    <label class="delete_pub"><a href="{%url 'cabinet:delete_publication' p.pk%}">удалить</a></label>
+    <label class="info_pub">стоимость: {{p.price}}</label>
+    <label class="info_pub">опубликовано: {{p.published_date|date}}</label>
+</div>
+{%endfor%}
+{%endblock%}

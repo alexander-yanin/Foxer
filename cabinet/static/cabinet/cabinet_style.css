@@ -1,0 +1,130 @@
+.sidebar{
+    width: 20%;
+    float: left;
+}
+
+.sidebar ul{
+    width: 60%;
+    padding: 0;
+    margin: 0 auto 20px;
+    list-style-type: none;
+}
+
+.sidebar ul li{
+    margin: 0 0 0 0;
+    padding-left: 20px;
+    line-height: 40px;
+}
+
+.sidebar ul li:hover{
+    background-color: #E1EBEA;
+}
+
+.sidebar ul p{
+    padding-left: 10px;
+}
+
+.info_cabinet{
+    width: 80%;
+    float: right;
+}
+
+.sidebar_profil{
+    border-bottom: 1px solid #999;
+}
+
+.sidebar_author{
+    border-bottom: 1px solid #999;
+}
+
+.wrap_file{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.load_form{
+    width: 250px;
+    margin-left: 100px;
+    font-family: Arial;
+    font-size: 1.1em;
+    color: #000;
+}
+
+.load_form input[type="file"]{
+    position: absolute;
+    left: -90;
+    top: 0;
+    width: 340px;
+    height: 50px;
+    background-color: #E1EBEA;
+    z-index: 1;
+}
+
+.load_form input[type="submit"]{
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 1em;
+    color: #000;
+    background-color: #E1EBEA;
+    border: 1px solid #ccc;
+}
+
+.load_form input[type="submit"]:hover{
+    background-color: #B6C4C7;
+}
+
+.wrap_pub{
+    width: 200px;
+    display: inline-block;
+    margin: 10px 10px 10px 10px;
+}
+
+.wrap_pub .img_pub{
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.wrap_pub .img_number{
+    font-size: .8em;
+    color: #ccc;
+}
+
+.wrap_pub .delete_pub{
+    font-size: .9em;
+    margin: 0 0 0 20px;
+}
+
+.wrap_pub .delete_pub:hover{
+    text-decoration: underline;
+}
+
+.wrap_pub .info_pub{
+    display: block;
+    font-size: .8em;
+    color: #ccc;
+}
+
+.default_but{
+    height: 50px;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    font-size: 1em;
+    color: #000;
+    background-color: #E1EBEA;
+    border: 1px solid #ccc;
+}
+
+.default_but:hover{
+    background-color: #B6C4C7;
+}
+

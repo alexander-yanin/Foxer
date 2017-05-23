@@ -1,0 +1,94 @@
+{%load staticfiles%}
+<html>
+    <head>
+        <title>{%block title%}FoxerPictures{%endblock%}</title>
+        <link rel="stylesheet" type="text/css" href="{%static 'picture/style.css'%}"/>
+        <link rel="stylesheet" type="text/css" href="{%static 'authsys/auth_style.css'%}"/>
+        <link rel="stylesheet" type="text/css" href="{%static 'cabinet/cabinet_style.css'%}"/>
+        <link rel="stylesheet" type="text/css" href="{%static 'cartsys/cart_style.css'%}"/>
+        <script type="text/javascript" src="{%static 'picture/jquery-3.1.1.min.js'%}"></script>
+        <script type="text/javascript" src="{%static 'picture/script.js'%}"></script>
+    </head>
+    <body>
+        <nav class="top_menu">
+            <div class="top_menu_left">
+                <a class="top_menu_items" href="doc/">о FoxerPictures</a>
+                <a class="top_menu_items" href="doc/forclients">Покупателям</a>
+                <a class="top_menu_items" href="doc/forauthors">Авторам</a>
+            </div>
+            <div class="top_menu_right">
+                {%if not login%}
+                <a class="top_menu_items" href="{%url 'authsys:home_auth'%}">вход</a>
+                {%else%}
+                <a class="top_menu_items" href="{%url 'cartsys:home_cart'%}">корзина({{num_pic}})</a>
+                <span class="top_menu_items" id="toolbar">{{login}}</span>
+                {%endif%}
+            </div>
+            <ul id="toolbar_menu">
+                <a href="{%url 'cabinet:home_cabinet'%}"><li>кабинет</li></a>
+                <a href="#"><li>помощь</li></a>
+                <a href="{%url 'authsys:logout'%}"><li>выход</li></a>
+            </ul>
+        </nav>
+        <div class="main_header">
+            <div class="main_logo">
+                <a href="{%url 'picture:home'%}">
+                    <img class="logo" src="{%static 'picture/images/logo.png'%}"/>
+                </a>
+            </div>
+            <div class="main_search">
+                <div class="search_in clearfix">
+                    <div class="search_input"><input type="text" id="search_line"></div>
+                    <div class="search_button"><input type="submit" value="найти"></div>
+                </div>
+                <div class="search_example">
+                    <p>Например, <u>пингвины</u></p>
+                </div>
+            </div>
+        </div>
+        <div class="main clearfix">
+            {%block main%}{%endblock%}
+        </div>
+        <div class="main_footer clearfix">
+            <div class="wrap_columns clearfix">
+                <div class="footer_column_1">
+                    <ul>
+                        <li><b>+ 7 (955) 930 82 70</b></li>
+                        <li><b>ask@foxer.ru</b></li>
+                        <span>*по вопросам покупки, поиска избражений</span>
+                        <li><b>aut@foxer.ru</b></li>
+                        <span>*по вопросам авторов о работе фотобанка, а так же о сотрудничестве с нами</span>
+                    </ul>
+                </div>
+                <div class="footer_column_2">
+                    <ul>
+                        <p><a href="doc/forclients">Для покупателя</a></p>
+                        <li><a href="doc/">о фотобанке</a></li>
+                        <li><a href="doc/payment">об оплате</a></li>
+                        <li><a href="doc/about_license">лицензии</a></li>
+                    </ul>
+                    <ul>
+                        <p><a href="doc/forauthors">Для авторов</a></p>
+                        <li><a href="">о сотрудничестве</a></li>
+                        <li><a href="">система рейтингов</a></li>
+                        <li><a href="">правила работы с фотобанком</a></li>
+                    </ul>
+                    <ul>
+                        <p>Реклама</p>
+                        <li><a href="">банеры FoxerPictures</a></li>
+                        <li><a href="">размещение рекламы на сайте</a></li>
+                    </ul>
+                </div>
+                <div class="footer_column_3">
+                    <ul>
+                        <p>Популярные темы</p>
+                        <li><a href="">новые публикации</a></li>
+                        <li><a href="">лидеры продаж</a></li>
+                        <li><a href="">покупателям</a></li>
+                        <li><a href="">авторам</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
